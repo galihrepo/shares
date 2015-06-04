@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -16,7 +17,21 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnShare = (Button) findViewById(R.id.button);
+        RelativeLayout bg = (RelativeLayout) findViewById(R.id.layout_bg);
+        final Button btnShare = (Button) findViewById(R.id.button);
+
+        bg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (btnShare.isShown()) {
+                    btnShare.setVisibility(View.GONE);
+                } else {
+                    btnShare.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+
         btnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
